@@ -1,0 +1,41 @@
+<app-ajax-table
+  matSort
+  matSortDirection="asc"
+  [tableColumns]="tableColumns"
+  [data]="data"
+  [totalRecords]="totalCount"
+  #table
+>
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef [style.flex]="'0 0 20%'"
+      >Id</mat-header-cell
+    >
+    <mat-cell *matCellDef="let element" [style.flex]="'0 0 20%'">
+      {{ element.id }}
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header [style.flex]="'0 0 30%'"
+      >Name</mat-header-cell
+    >
+    <mat-cell *matCellDef="let element" [style.flex]="'0 0 30%'">
+      {{ element.name | titlecase }}
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef mat-sort-header [style.flex]="'0 0 20%'"
+      >Email</mat-header-cell
+    >
+    <mat-cell *matCellDef="let element" [style.flex]="'0 0 20%'">
+      {{ element.email }}
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="favoriteSport">
+    <mat-header-cell *matHeaderCellDef mat-sort-header [style.flex]="'0 0 30%'"
+      >Favorite Sport</mat-header-cell
+    >
+    <mat-cell *matCellDef="let element" [style.flex]="'0 0 30%'">
+      {{ element.favoriteSport }}
+    </mat-cell>
+  </ng-container>
+</app-ajax-table>

@@ -1,0 +1,38 @@
+<div
+  fxFlex="100%"
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  fxFlexFill
+  fxLayoutGap="20px"
+  class="table-container"
+>
+  <div class="loading-container" fxFlexFill *ngIf="isLoading">
+    <mat-spinner color="accent"></mat-spinner>
+  </div>
+
+  <ng-template *ngIf="headerTemplate">
+    <form fxFlex="100%" fxFlexFill fxLayout="row" fxLayoutAlign="center center">
+      <ng-template [ngTemplateOutlet]="headerTemplate"></ng-template>
+    </form>
+  </ng-template>
+
+  <mat-table [dataSource]="data" fxFlex fxFlexFill>
+    <ng-content></ng-content>
+
+    <mat-header-row
+      *matHeaderRowDef="tableColumns; sticky: true"
+    ></mat-header-row>
+    <mat-row
+      *matRowDef="let row; columns: tableColumns"
+      class="table-row"
+    ></mat-row>
+  </mat-table>
+  <div fxFlex="100%" fxFlexFill fxFlexLayoutAlign="flex-end">
+    <mat-paginator
+      [pageSize]="10"
+      [pageSizeOptions]="[10, 15, 20]"
+      [length]="totalRecords"
+      showFirstLastButtons
+    ></mat-paginator>
+  </div>
+</div>

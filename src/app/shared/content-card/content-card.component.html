@@ -1,0 +1,8 @@
+<mat-card fxFlex="100%" fxFlexFill>
+  <mat-card-header fxLayout="row" fxFlexFill *ngIf="title">
+    <h2>{{ title | titlecase }}</h2>
+  </mat-card-header>
+  <mat-card-content>
+    <ng-template [ngTemplateOutlet]="cardContent"></ng-template>
+  </mat-card-content>
+</mat-card>
